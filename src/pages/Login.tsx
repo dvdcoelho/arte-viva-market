@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import AuthForm from '@/components/auth/AuthForm';
 import { toast } from '@/components/ui/sonner';
@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
+  const [userType, setUserType] = useState<'buyer' | 'seller'>('buyer');
 
   const handleSubmit = (data: any) => {
     console.log('Login data:', data);
@@ -15,8 +16,12 @@ const Login: React.FC = () => {
     // Simulação de login bem-sucedido
     toast.success('Login realizado com sucesso!');
     
+    // Salva o tipo de usuário baseado nos dados enviados
+    const loginUserType = data.userType || 'buyer';
+    setUserType(loginUserType);
+    
     // Redireciona com base no tipo de usuário
-    if (data.userType === 'seller') {
+    if (loginUserType === 'seller') {
       navigate('/dashboard');
     } else {
       navigate('/customer/dashboard');

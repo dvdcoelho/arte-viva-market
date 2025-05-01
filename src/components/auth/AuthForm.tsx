@@ -21,7 +21,8 @@ const AuthForm: React.FC<AuthFormProps> = ({
     email: '',
     password: '',
     confirmPassword: '',
-    storeName: '', // apenas para vendedores
+    storeName: '',
+    userType: userType, // Adicionamos o tipo de usuário aos dados do formulário
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +32,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    onSubmit({...formData, userType});
   };
 
   const isRegister = type === 'register';
@@ -43,7 +44,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
         {isRegister
           ? isSeller
             ? 'Cadastre-se como Vendedor'
-            : 'Crie sua conta'
+            : 'Crie sua conta como Cliente'
           : 'Entrar na sua conta'}
       </h2>
 
@@ -119,7 +120,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
 
         <Button 
           type="submit" 
-          className="w-full bg-arteviva-purple hover:bg-arteviva-purple-dark mt-2"
+          className="w-full bg-kair-purple hover:bg-kair-purple-dark mt-2"
         >
           {isRegister
             ? 'Criar conta'
@@ -131,14 +132,14 @@ const AuthForm: React.FC<AuthFormProps> = ({
         {isRegister ? (
           <p>
             Já tem uma conta?{' '}
-            <Link to="/login" className="text-arteviva-purple font-medium hover:underline">
+            <Link to="/login" className="text-kair-purple font-medium hover:underline">
               Entre aqui
             </Link>
           </p>
         ) : (
           <p>
             Não tem uma conta?{' '}
-            <Link to="/register" className="text-arteviva-purple font-medium hover:underline">
+            <Link to="/register" className="text-kair-purple font-medium hover:underline">
               Cadastre-se
             </Link>
           </p>
@@ -147,7 +148,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
 
       {!isRegister && (
         <div className="mt-2 text-center">
-          <Link to="/forgot-password" className="text-sm text-arteviva-purple hover:underline">
+          <Link to="/forgot-password" className="text-sm text-kair-purple hover:underline">
             Esqueci minha senha
           </Link>
         </div>
