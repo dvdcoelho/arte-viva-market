@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,29 +20,31 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <HelmetProvider>
-      <BrowserRouter>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/register/:userType" element={<Register />} />
-            <Route path="/product/:id" element={<Product />} />
-            <Route path="/seller/:id" element={<SellerProfile />} />
-            <Route path="/dashboard" element={<SellerDashboard />} />
-            <Route path="/customer/dashboard" element={<CustomerDashboard />} />
-            <Route path="/customer/profile" element={<CustomerProfile />} />
-            <Route path="/seller/orders" element={<OrderKanban />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </TooltipProvider>
-      </BrowserRouter>
-    </HelmetProvider>
-  </QueryClientProvider>
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <BrowserRouter>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/register/:userType" element={<Register />} />
+              <Route path="/product/:id" element={<Product />} />
+              <Route path="/seller/:id" element={<SellerProfile />} />
+              <Route path="/dashboard" element={<SellerDashboard />} />
+              <Route path="/customer/dashboard" element={<CustomerDashboard />} />
+              <Route path="/customer/profile" element={<CustomerProfile />} />
+              <Route path="/seller/orders" element={<OrderKanban />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </TooltipProvider>
+        </BrowserRouter>
+      </HelmetProvider>
+    </QueryClientProvider>
+  </React.StrictMode>
 );
 
 export default App;
