@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ShoppingCart, User, Search, Menu, X } from 'lucide-react';
+import { ShoppingCart, User, Search, Menu, X, Package } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +15,11 @@ const Navbar: React.FC = () => {
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <h1 className="text-2xl font-display font-semibold text-kair-purple">
-            Kair
-          </h1>
+          <img 
+            src="/lovable-uploads/7c2fd0b1-d1bf-42d2-a747-11fa6c11cc61.png" 
+            alt="Kair Logo" 
+            className="h-10"
+          />
         </Link>
 
         {/* Desktop Search */}
@@ -54,6 +56,12 @@ const Navbar: React.FC = () => {
           <Link to="/register/seller">
             <Button size="sm" className="bg-kair-purple hover:bg-kair-purple-dark">
               Vender
+            </Button>
+          </Link>
+          <Link to="/seller/products/new">
+            <Button variant="outline" size="sm" className="gap-1">
+              <Package className="h-4 w-4" />
+              <span>Cadastrar Produto</span>
             </Button>
           </Link>
         </div>
@@ -101,6 +109,12 @@ const Navbar: React.FC = () => {
             className="block py-2 text-sm font-medium hover:text-kair-purple transition-colors"
           >
             Artesãos
+          </Link>
+          <Link 
+            to="/seller/products/new" 
+            className="block py-2 text-sm font-medium hover:text-kair-purple transition-colors"
+          >
+            Cadastrar Produto
           </Link>
           <div className="flex flex-col space-y-2 pt-2">
             <Link to="/login">
