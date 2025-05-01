@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-arteviva-purple hover:bg-arteviva-purple-dark">
+            <Button asChild size="lg" className="bg-kair-purple hover:bg-kair-purple-dark">
               <Link to="/products">
                 Explorar Produtos
               </Link>

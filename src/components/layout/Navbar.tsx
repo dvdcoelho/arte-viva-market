@@ -15,8 +15,8 @@ const Navbar: React.FC = () => {
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <h1 className="text-2xl font-display font-semibold text-arteviva-purple">
-            Arte<span className="text-foreground">Viva</span>
+          <h1 className="text-2xl font-display font-semibold text-kair-purple">
+            Kair
           </h1>
         </Link>
 
@@ -33,15 +33,15 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">
-          <Link to="/categories" className="text-sm font-medium hover:text-arteviva-purple transition-colors">
+          <Link to="/categories" className="text-sm font-medium hover:text-kair-purple transition-colors">
             Categorias
           </Link>
-          <Link to="/sellers" className="text-sm font-medium hover:text-arteviva-purple transition-colors">
+          <Link to="/sellers" className="text-sm font-medium hover:text-kair-purple transition-colors">
             Artesãos
           </Link>
           <Link to="/cart" className="relative">
-            <ShoppingCart className="h-5 w-5 text-muted-foreground hover:text-arteviva-purple transition-colors" />
-            <span className="absolute -top-1 -right-1 bg-arteviva-purple text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+            <ShoppingCart className="h-5 w-5 text-muted-foreground hover:text-kair-purple transition-colors" />
+            <span className="absolute -top-1 -right-1 bg-kair-purple text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
               0
             </span>
           </Link>
@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
             </Button>
           </Link>
           <Link to="/register/seller">
-            <Button size="sm" className="bg-arteviva-purple hover:bg-arteviva-purple-dark">
+            <Button size="sm" className="bg-kair-purple hover:bg-kair-purple-dark">
               Vender
             </Button>
           </Link>
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
         <div className="flex md:hidden gap-4 items-center">
           <Link to="/cart" className="relative">
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 bg-arteviva-purple text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 bg-kair-purple text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
               0
             </span>
           </Link>
@@ -92,13 +92,13 @@ const Navbar: React.FC = () => {
         <div className="md:hidden px-4 pb-4 space-y-4 border-t border-border pt-2">
           <Link 
             to="/categories" 
-            className="block py-2 text-sm font-medium hover:text-arteviva-purple transition-colors"
+            className="block py-2 text-sm font-medium hover:text-kair-purple transition-colors"
           >
             Categorias
           </Link>
           <Link 
             to="/sellers" 
-            className="block py-2 text-sm font-medium hover:text-arteviva-purple transition-colors"
+            className="block py-2 text-sm font-medium hover:text-kair-purple transition-colors"
           >
             Artesãos
           </Link>
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
               </Button>
             </Link>
             <Link to="/register/seller">
-              <Button className="w-full bg-arteviva-purple hover:bg-arteviva-purple-dark">
+              <Button className="w-full bg-kair-purple hover:bg-kair-purple-dark">
                 Vender
               </Button>
             </Link>

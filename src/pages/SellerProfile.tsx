@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Star, MapPin, Calendar } from 'lucide-react';
 import ProductGrid from '@/components/product/ProductGrid';
 import { Helmet } from 'react-helmet-async';
+import { Product } from '@/types/product';
 
 const SellerProfile: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -28,7 +29,7 @@ const SellerProfile: React.FC = () => {
   };
 
   // Produtos mockados para demonstração
-  const products = [
+  const products: Product[] = [
     {
       id: '1',
       name: 'Vaso em Cerâmica Rústica Artesanal',
@@ -84,13 +85,13 @@ const SellerProfile: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{seller.name} | ArteViva</title>
+        <title>{seller.name} | Kair</title>
         <meta name="description" content={seller.description.substring(0, 160)} />
-        <meta property="og:title" content={`${seller.name} | ArteViva`} />
+        <meta property="og:title" content={`${seller.name} | Kair`} />
         <meta property="og:description" content={seller.description.substring(0, 160)} />
         <meta property="og:image" content={seller.profileImage} />
         <meta property="og:type" content="profile" />
-        <link rel="canonical" href={`https://arteviva.com.br/seller/${seller.id}`} />
+        <link rel="canonical" href={`https://kair.com.br/seller/${seller.id}`} />
         <script type="application/ld+json">
           {`
             {
@@ -138,10 +139,10 @@ const SellerProfile: React.FC = () => {
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   <h1 className="text-2xl md:text-3xl font-display font-semibold">{seller.name}</h1>
                   {seller.verified && (
-                    <Badge className="bg-arteviva-purple">Vendedor Verificado</Badge>
+                    <Badge className="bg-kair-purple">Vendedor Verificado</Badge>
                   )}
                   {seller.featured && (
-                    <Badge variant="outline" className="border-arteviva-purple text-arteviva-purple">
+                    <Badge variant="outline" className="border-kair-purple text-kair-purple">
                       Vendedor Pro
                     </Badge>
                   )}
@@ -159,7 +160,7 @@ const SellerProfile: React.FC = () => {
                   </div>
                   <div className="flex items-center text-muted-foreground">
                     <Calendar className="h-4 w-4 mr-1" />
-                    Na ArteViva desde {seller.joinedDate}
+                    Na Kair desde {seller.joinedDate}
                   </div>
                 </div>
                 

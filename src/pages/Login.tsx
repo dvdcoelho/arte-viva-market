@@ -16,8 +16,8 @@ const Login: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Entrar | ArteViva</title>
-        <meta name="description" content="Entre em sua conta no ArteViva para comprar produtos artesanais únicos ou gerenciar sua loja." />
+        <title>Entrar | Kair</title>
+        <meta name="description" content="Entre em sua conta no Kair para comprar produtos artesanais únicos ou gerenciar sua loja." />
       </Helmet>
 
       <Layout>

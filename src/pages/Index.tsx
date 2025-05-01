@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import Hero from '@/components/home/Hero';
@@ -6,10 +5,11 @@ import FeaturedProducts from '@/components/home/FeaturedProducts';
 import CategorySection from '@/components/home/CategorySection';
 import SellerFeatures from '@/components/home/SellerFeatures';
 import { Helmet } from 'react-helmet-async';
+import { Product } from '@/types/product';
 
 const Index: React.FC = () => {
   // Dados mockados para a demonstração
-  const featuredProducts = [
+  const featuredProducts: Product[] = [
     {
       id: '1',
       name: 'Vaso em Cerâmica Rústica Artesanal',
@@ -119,7 +119,7 @@ const Index: React.FC = () => {
     },
   ];
 
-  const newArrivalProducts = [
+  const newArrivalProducts: Product[] = [
     featuredProducts[4],
     featuredProducts[5],
     featuredProducts[6],
@@ -129,14 +129,14 @@ const Index: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>ArteViva | Marketplace de Produtos Artesanais</title>
+        <title>Kair | Marketplace de Produtos Artesanais</title>
         <meta name="description" content="Descubra produtos artesanais únicos e feitos à mão por artesãos brasileiros. Compre direto de quem faz com amor e cuidado." />
-        <meta property="og:title" content="ArteViva | Marketplace de Produtos Artesanais" />
+        <meta property="og:title" content="Kair | Marketplace de Produtos Artesanais" />
         <meta property="og:description" content="Descubra produtos artesanais únicos e feitos à mão por artesãos brasileiros." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://arteviva.com.br" />
+        <meta property="og:url" content="https://kair.com.br" />
         <meta property="og:image" content="/og-image.jpg" />
-        <link rel="canonical" href="https://arteviva.com.br" />
+        <link rel="canonical" href="https://kair.com.br" />
       </Helmet>
 
       <Layout>

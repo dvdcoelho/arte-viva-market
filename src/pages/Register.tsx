@@ -25,12 +25,12 @@ const Register: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{isSeller ? 'Cadastro de Vendedor' : 'Criar Conta'} | ArteViva</title>
+        <title>{isSeller ? 'Cadastro de Vendedor' : 'Criar Conta'} | Kair</title>
         <meta 
           name="description" 
           content={isSeller 
-            ? "Cadastre-se como vendedor no ArteViva e comece a vender seus produtos artesanais." 
-            : "Crie sua conta no ArteViva para comprar produtos artesanais únicos."}
+            ? "Cadastre-se como vendedor no Kair e comece a vender seus produtos artesanais." 
+            : "Crie sua conta no Kair para comprar produtos artesanais únicos."}
         />
       </Helmet>
 
