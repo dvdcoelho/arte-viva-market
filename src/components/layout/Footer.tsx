@@ -1,8 +1,11 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  // Using useLocation to verify we're in a Router context
+  const location = useLocation();
+  
   return (
     <footer className="bg-arteviva-gray-light pt-12 pb-6 border-t border-border">
       <div className="container mx-auto px-4">
