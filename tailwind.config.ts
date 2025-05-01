@@ -53,18 +53,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Arte Viva colors
-				arteviva: {
-					purple: {
-						light: '#E5DEFF',
-						DEFAULT: '#9b87f5',
-						dark: '#7E69AB',
-					},
-					gray: {
-						light: '#F1F0FB',
-						DEFAULT: '#8E9196',
-						dark: '#4A4A4A',
-					}
+				// Kair colors
+				kair: {
+					pink: '#FF99C8',
+					yellow: '#FCF6BD',
+					green: '#D0F4DE',
+					blue: '#A9DEF9',
+					purple: '#E4C1F9',
+					background: '#F7FAE8',
+					'purple-dark': '#D1A5F0', // Darker variant for hover states
+					'pink-dark': '#FF80B7', // Darker variant for hover states
 				}
 			},
 			fontFamily: {
@@ -88,12 +86,27 @@ export default {
 				fadeIn: {
 					from: { opacity: '0' },
 					to: { opacity: '1' }
+				},
+				slideUp: {
+					from: { transform: 'translateY(20px)', opacity: '0' },
+					to: { transform: 'translateY(0)', opacity: '1' }
+				},
+				pulse: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
+				},
+				floating: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fadeIn': 'fadeIn 0.5s ease-in-out'
+				'fadeIn': 'fadeIn 0.5s ease-in-out',
+				'slideUp': 'slideUp 0.6s ease-out',
+				'pulse': 'pulse 3s ease-in-out infinite',
+				'floating': 'floating 3s ease-in-out infinite',
 			}
 		}
 	},

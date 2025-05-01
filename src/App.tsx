@@ -11,6 +11,9 @@ import Register from "./pages/Register";
 import Product from "./pages/Product";
 import SellerProfile from "./pages/SellerProfile";
 import SellerDashboard from "./pages/SellerDashboard";
+import CustomerDashboard from "./pages/CustomerDashboard";
+import OrderKanban from "./pages/OrderKanban";
+import CustomerProfile from "./pages/CustomerProfile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +33,9 @@ const App = () => (
             <Route path="/product/:id" element={<Product />} />
             <Route path="/seller/:id" element={<SellerProfile />} />
             <Route path="/dashboard" element={<SellerDashboard />} />
+            <Route path="/customer/dashboard" element={<CustomerDashboard />} />
+            <Route path="/customer/profile" element={<CustomerProfile />} />
+            <Route path="/seller/orders" element={<OrderKanban />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>
