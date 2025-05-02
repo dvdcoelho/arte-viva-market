@@ -18,11 +18,19 @@ import CustomerProfile from "./pages/CustomerProfile";
 import NotFound from "./pages/NotFound";
 import ProductRegistration from "./pages/ProductRegistration";
 
-const queryClient = new QueryClient();
+// Create a new QueryClient instance for React Query
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => (
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+  <QueryClientProvider client={queryClient}>
+    <React.StrictMode>
       <HelmetProvider>
         <BrowserRouter>
           <TooltipProvider>
@@ -45,8 +53,8 @@ const App = () => (
           </TooltipProvider>
         </BrowserRouter>
       </HelmetProvider>
-    </QueryClientProvider>
-  </React.StrictMode>
+    </React.StrictMode>
+  </QueryClientProvider>
 );
 
 export default App;
