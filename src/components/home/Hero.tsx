@@ -4,6 +4,13 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Define the easing function outside the component
+const easeInOutCubic = (t: number): number => {
+  return t < 0.5 
+    ? 4 * t * t * t 
+    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+};
+
 const Hero: React.FC = () => {
   const [artisansCount, setArtisansCount] = useState(0);
   const [productsCount, setProductsCount] = useState(0);
@@ -45,7 +52,7 @@ const Hero: React.FC = () => {
     
     const timer = setInterval(() => {
       step++;
-      const progress = Math.easeInOutCubic(step / steps);
+      const progress = easeInOutCubic(step / steps);
       
       setArtisansCount(Math.floor(artisansTarget * progress));
       setProductsCount(Math.floor(productsTarget * progress));
@@ -58,13 +65,6 @@ const Hero: React.FC = () => {
         setCustomersCount(customersTarget);
       }
     }, interval);
-  };
-  
-  // Easing function for smoother animation
-  Math.easeInOutCubic = function(t: number) {
-    return t < 0.5 
-      ? 4 * t * t * t 
-      : 1 - Math.pow(-2 * t + 2, 3) / 2;
   };
 
   return (
