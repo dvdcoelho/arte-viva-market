@@ -1,4 +1,4 @@
-# Bem vindo ao projeto do DVD
+# Bem vindo ao projeto do DVD 2025
 
 ## Project info
 
