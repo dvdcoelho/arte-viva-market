@@ -1,8 +1,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Star } from 'lucide-react';
+import { Heart, Star, Award } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 interface ProductCardProps {
   id: string;
@@ -24,13 +25,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
   featured = null,
 }) => {
   return (
-    <div className="group relative overflow-hidden rounded-md product-card-shadow bg-white hover:shadow-lg transition-shadow">
+    <div 
+      className={cn(
+        "group relative overflow-hidden rounded-md product-card-shadow bg-white hover:shadow-lg transition-shadow",
+        featured && "featured-product",
+        featured === 'pro' && "featured-product-pro"
+      )}
+    >
       {featured && (
         <Badge 
-          className={`absolute top-3 left-3 z-10 px-2 py-1 ${
-            featured === 'pro' ? 'bg-arteviva-purple' : 'bg-arteviva-purple/70'
-          }`}
+          className={cn(
+            "absolute top-3 left-3 z-10 px-2 py-1 flex items-center gap-1",
+            featured === 'pro' ? 'bg-primary hover:bg-primary/90' : 'bg-primary/70 hover:bg-primary/60'
+          )}
         >
+          <Award className="h-3 w-3" />
           {featured === 'pro' ? 'Destaque Pro' : 'Destaque'}
         </Badge>
       )}
@@ -43,7 +52,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
           />
           <button className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-1.5 rounded-full opacity-80 hover:opacity-100 hover:bg-white transition-opacity">
-            <Heart className="h-4 w-4 text-arteviva-gray-dark" />
+            <Heart className="h-4 w-4 text-gray-700" />
           </button>
         </div>
         

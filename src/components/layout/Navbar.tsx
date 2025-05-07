@@ -1,14 +1,19 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ShoppingCart, User, Search, Menu, X, Package } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const isActive = (path: string) => {
+    return location.pathname === path ? "text-primary font-medium" : "hover:text-primary transition-colors";
+  };
 
   return (
     <header className="border-b border-border sticky top-0 bg-background/95 backdrop-blur-sm z-50">
@@ -35,15 +40,15 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">
-          <Link to="/categories" className="text-sm font-medium hover:text-kair-purple transition-colors">
+          <Link to="/categories" className={`text-sm ${isActive('/categories')}`}>
             Categorias
           </Link>
-          <Link to="/sellers" className="text-sm font-medium hover:text-kair-purple transition-colors">
+          <Link to="/sellers" className={`text-sm ${isActive('/sellers')}`}>
             Artesãos
           </Link>
           <Link to="/cart" className="relative">
-            <ShoppingCart className="h-5 w-5 text-muted-foreground hover:text-kair-purple transition-colors" />
-            <span className="absolute -top-1 -right-1 bg-kair-purple text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+            <ShoppingCart className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
+            <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
               0
             </span>
           </Link>
@@ -54,7 +59,7 @@ const Navbar: React.FC = () => {
             </Button>
           </Link>
           <Link to="/register/seller">
-            <Button size="sm" className="bg-kair-purple hover:bg-kair-purple-dark">
+            <Button size="sm">
               Vender
             </Button>
           </Link>
@@ -70,7 +75,7 @@ const Navbar: React.FC = () => {
         <div className="flex md:hidden gap-4 items-center">
           <Link to="/cart" className="relative">
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 bg-kair-purple text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
               0
             </span>
           </Link>
@@ -100,31 +105,34 @@ const Navbar: React.FC = () => {
         <div className="md:hidden px-4 pb-4 space-y-4 border-t border-border pt-2">
           <Link 
             to="/categories" 
-            className="block py-2 text-sm font-medium hover:text-kair-purple transition-colors"
+            className={`block py-2 text-sm ${isActive('/categories')}`}
+            onClick={() => setIsMenuOpen(false)}
           >
             Categorias
           </Link>
           <Link 
             to="/sellers" 
-            className="block py-2 text-sm font-medium hover:text-kair-purple transition-colors"
+            className={`block py-2 text-sm ${isActive('/sellers')}`}
+            onClick={() => setIsMenuOpen(false)}
           >
             Artesãos
           </Link>
           <Link 
             to="/seller/products/new" 
-            className="block py-2 text-sm font-medium hover:text-kair-purple transition-colors"
+            className={`block py-2 text-sm ${isActive('/seller/products/new')}`}
+            onClick={() => setIsMenuOpen(false)}
           >
             Cadastrar Produto
           </Link>
           <div className="flex flex-col space-y-2 pt-2">
-            <Link to="/login">
+            <Link to="/login" onClick={() => setIsMenuOpen(false)}>
               <Button variant="outline" className="w-full gap-1">
                 <User className="h-4 w-4" />
                 <span>Entrar</span>
               </Button>
             </Link>
-            <Link to="/register/seller">
-              <Button className="w-full bg-kair-purple hover:bg-kair-purple-dark">
+            <Link to="/register/seller" onClick={() => setIsMenuOpen(false)}>
+              <Button className="w-full">
                 Vender
               </Button>
             </Link>

@@ -17,6 +17,8 @@ import OrderKanban from "./pages/OrderKanban";
 import CustomerProfile from "./pages/CustomerProfile";
 import NotFound from "./pages/NotFound";
 import ProductRegistration from "./pages/ProductRegistration";
+import Categories from "./pages/Categories";
+import Sellers from "./pages/Sellers";
 
 // Create a new QueryClient instance for React Query
 const queryClient = new QueryClient({
@@ -30,30 +32,30 @@ const queryClient = new QueryClient({
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <React.StrictMode>
-      <HelmetProvider>
-        <BrowserRouter>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/register/:userType" element={<Register />} />
-              <Route path="/product/:id" element={<Product />} />
-              <Route path="/seller/:id" element={<SellerProfile />} />
-              <Route path="/dashboard" element={<SellerDashboard />} />
-              <Route path="/customer/dashboard" element={<CustomerDashboard />} />
-              <Route path="/customer/profile" element={<CustomerProfile />} />
-              <Route path="/seller/orders" element={<OrderKanban />} />
-              <Route path="/seller/products/new" element={<ProductRegistration />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </TooltipProvider>
-        </BrowserRouter>
-      </HelmetProvider>
-    </React.StrictMode>
+    <HelmetProvider>
+      <BrowserRouter>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/register/:userType" element={<Register />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/seller/:id" element={<SellerProfile />} />
+            <Route path="/dashboard" element={<SellerDashboard />} />
+            <Route path="/customer/dashboard" element={<CustomerDashboard />} />
+            <Route path="/customer/profile" element={<CustomerProfile />} />
+            <Route path="/seller/orders" element={<OrderKanban />} />
+            <Route path="/seller/products/new" element={<ProductRegistration />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/sellers" element={<Sellers />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </TooltipProvider>
+      </BrowserRouter>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 
