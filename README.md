@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Bem vindo ao projeto do DVD
 
 ## Project info
 
